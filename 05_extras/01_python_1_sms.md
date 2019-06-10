@@ -1,0 +1,45 @@
+### SMS Functionality
+
+Finally we need to handle the SMS functionality of the application, so whenever a new month have passed we send users an SMS with their payment link
+
+Let’s go to the `main/models.py` file and add the following method to the `Renter` model
+
+```python
+   def sms(self):
+       body = """Your paymet of {1} K.D is due, Pay using the following link {2}""".format(self.name, self.amount,self.generate_url())
+       msg = client.messages.create(
+           src='+32466900585',
+           dst='+965'+str(self.phone),
+           text=body,
+       )
+       return msg
+```
+
+This method will define how we send our SMS to the client, we are using the `Plivo` API for sending SMS, after you signup there you should get a number that you can use, inseart that phone number into the “src” field, create your special body for the SMS and format it in a certain way, you may notice we are using the other Renter method which is generate_url() and that method will return a url that we can use to share it with the user , we also defined an “dst” which stands for destination and gave it the international number for Kuwait in this case “+965”
+
+Now above the `Renter` model lets configure `Plivo`
+
+```python
+plivo_id = "YOUR-ID"
+plivo_token = "YOUR-TOKEN"
+client = plivo.RestClient(plivo_id,plivo_token)
+```
+
+You will get both the `plivo_id` and the `plivo_token` from the Plivo API website
+
+### Creating the SMS View
+
+Next lets go the the views at `main/views.py` and create a small function to allow the admin to send SMS messages to the renters, and its fairly simple as we will only run the .sms() method on a renter object
+
+```python
+def sendPayment(request,id):
+   renter = get_object_or_404(Renter,id=id)
+   renter.sms()
+   return redirect('list')
+```
+
+And we need to create a url for this new view, so go to `main/urls.py` and add the following url to the list of urls
+
+```python
+   path('sendPayment/<int:id>/', sendPayment, name='sendPayment'),
+```
