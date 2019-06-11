@@ -26,7 +26,7 @@ def tap(renter,url):
                }
            },
            "source": {
-               "id": "src_card"
+               "id": "src_all"
            },
            "redirect": {
                "url": url

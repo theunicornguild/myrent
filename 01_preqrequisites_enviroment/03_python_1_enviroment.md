@@ -44,12 +44,12 @@ myrent\Scripts\activate
 ### Cloning the repo
 
 ```bash
-git clone https://github.com/test/test.git
+git clone https://github.com/JoinCODED/myrent.git
 ```
 
 Now let’s go to the newly cloned project and see what we have there
 
 ```bash
-cd test
+cd myrent
 ls -la
 ```

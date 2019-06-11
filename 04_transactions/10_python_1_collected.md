@@ -26,7 +26,7 @@ In this view we take the user who initiated the request, then we use this query
     Transaction.objects.filter(renter__landlord=user,date__gte=timezone.now().replace(day=1, hour=0, minute=0, second=0, microsecond=0)).filter(status="CAPTURED")
 ```
 
-We take all the transactions, then grab the ones where the landlord is the person who initiated this request, after that we check for the date if it was within the beginning of this month, after that we check if the status on this transactions is “CAPTURED” which is the default for a successful payment using K-NET gateway
+We take all the transactions, then grab the ones where the landlord is the person who initiated this request, after that we check for the date if it was within the beginning of this month, after that we check if the status on this transactions is “CAPTURED” which is the default for a successful payment using Tap's gateway
 
 We set a variable called total to be = 0
 
