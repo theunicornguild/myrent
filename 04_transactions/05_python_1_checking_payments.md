@@ -13,5 +13,6 @@ def checkpayment(tapId):
    return jsonResponse
 ```
 
-This function takes a `tapId` and sends it to the tap api with some special headers (the headers in this case are test api keys if you decide to use tap as your go to payment gateway they will provide special api keys for you) , after that it will get the response from tap and turn it into json format and return it back
+This function takes a `tapId` and sends it to the tap api with some special headers (the headers in this case are the test api keys. If you decide to use tap as your go to payment gateway they will provide a special api keys for you). After that, it will get the response from tap and turn it into json format and return it back.
+
 Pretty simple huh?

@@ -28,7 +28,7 @@ We defined a function and named it `newRenter` and then we added a very importan
        return redirect('list')
 ```
 
-Then we check if the request method is `POST`, and it was `POST` then it will create a variable and name it `form` and use a form called `RenterForm` and fill it with whatever data the `request.POST` had, afterwards it would check if the information provided to the form was valid, and what we mean by valid here is that whatever necessary fields that the form requires are provided and are in the correct syntax so the model can fill the information and save it in the database
+Then we check if the request method is `POST`. If it was `POST`, then it will create a variable and name it `form` and use a form called `RenterForm` to fill it with whatever data the `request.POST` had. Afterwards, it would check if the information provided to the form was valid, and what we mean by valid here is that whatever necessary fields that the form requires are provided and are in the correct syntax so the model can fill the information and save it in the database
 
 ```python
        if form.is_valid():
@@ -43,18 +43,18 @@ And if the form was valid we will start creating an object from the data provide
           return redirect('/')
 ```
 
-Since we checked that the user was actually authenticated we can then use `commit=False` to pause the actual saving of the object to the database and create a dummy object with the information that it has and saved that dummy object in a variable called `post` after that we can assign it a `landlord` which is the `request.user` and finally save the object to be sent to the database and afterwards send the user to the main page
+Since we checked that the user was actually authenticated we can then use `commit=False` to pause the actual saving of the object to the database and create a dummy object with the information that it has and saved that dummy object in a variable called `post`. After that, we can assign it a `landlord` which is the `request.user` and finally save the object to be sent to the database and afterwards redirect the user to the main page
 
 ```python
    else:
        form = RenterForm()
    return render(request, 'renter/add.html', {'form': form})
 ```
-
-But in the case that the request isn’t `POST` then it will generate an empty form and send it as context to the user when it directs him to the add renter template page
+#mention that we'll be creating this template next
+But in the case that the request isn’t `POST` then it will generate an empty form and send it as context to the user when it directs him to the add renter template page.
 
 ### Creating a template
-
+#there is no templates folder in the main app to go to
 Now go to `main/templates/` and create a folder and call it `renter` inside of it create a new file and name it `add.html` and type the following
 
 ```html
@@ -80,7 +80,7 @@ Now go to `main/templates/` and create a folder and call it `renter` inside of i
 Its a simple django template that uses the form that we sent thru the context, then we used crispy forms to make the form a little bit prettier all while extending from the base.html file at the block main location
 
 ### Creating a Form
-
+#I think its better to create the form before the using it in the view
 Now let’s create the form before we go any further, so in the `main` folder create a file and name it `forms.py` with the following information
 
 ```python

@@ -1,7 +1,8 @@
 ### Creating Delete View
 
-Now we finished the detail page for the renters and we can continue on to create a page that deletes a `renter` object
+Now we finished the detail page for the renters and we can continue on to create a page that deletes a `Renter` object
 
+#where??
 Lets type the following code
 
 ```python
@@ -19,4 +20,4 @@ In here we grabbed the `renter` object that is required, we checked that the use
    renter.delete()
 ```
 
-To delete the renter object and then redirect the user to the list
+This command deleted the renter object and then redirects the user to the list

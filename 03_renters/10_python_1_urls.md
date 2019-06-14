@@ -1,8 +1,8 @@
 ### URL's
 
-You may have noticed that we generated lots of functionality but we have no way of accessing all of this functions… because we still haven’t linked them to the application via url’s
+You may have noticed that we generated lots of functionality but we have no way of accessing all of these functions… because we still haven’t linked them to the application via url’s
 
-Lets go to the `main` folder and create a new file and name it `urls.py`
+Let's go to the `main` folder and create a new file and name it `urls.py`
 
 And inside lets type the following
 
@@ -20,7 +20,7 @@ urlpatterns = [
 ]
 ```
 
-In the 2nd import we are getting all of the functions that the `views.py` have and then in the `urlpatterns` we are creating urls for each of them
+In the 2nd import we are getting all of the functions that the `views.py` have and then in the `urlpatterns` we are creating urls for each one of them
 
 Each one has a url name , a function and a name to identify the url
 

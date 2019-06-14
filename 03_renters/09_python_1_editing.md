@@ -19,7 +19,7 @@ def editRenter(request,id):
    return render(request, 'renter/edit.html', {'form': form})
 ```
 
-We defined the function `editRenter` so it can take an `id` as an argument, then defined a variable `renter` which uses a function that will import shortly called `get_object_or_404()` and the main functionality of this function is trying to get an object from a specific model with a specific key/value pair and if it fails to get that specific item it will just send the user to a 404 page (page not found)
+We defined the function `editRenter` so that it takes an `id` as an argument. Then defined a variable `renter` which uses a function that we'll import shortly called `get_object_or_404()`. The main functionality of this function is to try and get an object from a specific model with a specific key/value pair and if it fails to get that specific item, it will just send the user to a 404 page (page not found).
 
 In this case we provided the `Renter` model and for the key/value pair we need to match the id of the object with the id that the user provides so its gonna be `id=id`
 
@@ -50,9 +50,9 @@ Now if the request was a `POST` it will fill the `RenterForm` with two things, t
    return render(request, 'renter/edit.html', {'form': form})
 ```
 
-But if the request wasn’t a `POST` request, it will still take the id and get the object, fill the form with the object that we want to edit and send it to the edit.html template so the user can view the object before changing it
+But if the request wasn’t a `POST` request, it will still take the id and get the object, fill the form with the object that we want to edit and send it to the `edit.html` template so the user can view the object before changing it
 
-Finally we need to import the `get_object_or_404()` function, so at the top of the page where we have the imports change the following import
+Finally, we need to import the `get_object_or_404()` function, so at the top of the `main/views.py` where we have the imports change the following import
 
 ```python
 from django.shortcuts import render,redirect
