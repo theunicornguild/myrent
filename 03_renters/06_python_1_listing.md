@@ -8,7 +8,7 @@ def listRenters(request):
    if not user.is_authenticated:
        return redirect('login')
    user = request.user
-   renters = Renter.objects.filter(landlord=user
+   renters = Renter.objects.filter(landlord=user)
    context = {
        'renters': renters
    }
@@ -17,11 +17,11 @@ def listRenters(request):
 
 I will skip the parts that we previously explained up to this point so if you need to you can check the previous functions for more information
 
-In here we defined two variables that we will use to help us list all users that we own, first a `user` variable and a `renters` variable, the `user` variable will contain the current logged in user which is `request.user` while renters will go thru all the `Renter` objects and find the ones that belong to this current user and save that `QuerySet` to the variable
+In here we defined two variables that we will use to help us list all users that we own, first a `user` variable and a `renters` variable, the `user` variable will contain the current logged in user which is `request.user` while renters will go thru all the `Renter` objects and find the ones that belong to this current user and save that `QuerySet` to the `renters` variable
 
-    - A QuerySet is django’s way of grouping in a list of objects that it grabbed from the database and it doesn’t have the same methods that a normal array have so dealing with it can be a little bit different.
+ * A QuerySet is django’s way of grouping in a list of objects that it grabbed from the database and it doesn’t have the same methods that a normal array have so dealing with it can be a little bit different.
 
-Because we are using the `Renter` model we have to import it so at the top of the `views.py` file import `Renter` like the following
+Because we are using the `Renter` model we have to import it. So, at the top of the `views.py` file import `Renter` like the following
 
 ```python
 from main.models import Renter

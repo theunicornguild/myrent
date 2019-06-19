@@ -1,6 +1,6 @@
 ### Creating Transaction Model
 
-Now lets handle how transactions are created, So move to the `transactions` folder and open up `models.py` to create our transaction model
+Now let's handle how transactions are created, So move to the `transactions` folder and open up `models.py` to create our transaction model
 
 Keep in mind we are using `Tap` as our payment gateway for this guide and stuff might be different if you plan on using other payment gateways
 
@@ -29,4 +29,4 @@ class Transaction(models.Model):
        return str(self.renter.amount)
 ```
 
-You can notice that we defined multiple fields and almost all of them are optional except for the `renter`. The reason behind that is because when a `renter` initiate a payment he might not continue doing so and we are filling this `transaction` model after either a payment is successful or a failure
+You can notice that we defined multiple fields and almost all of them are optional except for the `renter`. The reason behind that is because when a `renter` initiates a payment he might not continue doing so and we are filling this `transaction` model after either a payment succeded or failed.

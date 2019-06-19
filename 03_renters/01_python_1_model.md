@@ -1,8 +1,8 @@
-### a Renter's model
+### Renter's model
 
 Let’s move to the other application named `main`.
-We are gonna start by creating our first model for this application Its gonna be the `Renter` model
-Go to the folder `main` and open up `models.py`
+We are gonna start by creating our first model for this application which is the `Renter` model.
+Go to the folder `main` and open up `models.py`.
 
 We are gonna copy/paste this in and explain it as we go,
 
@@ -21,7 +21,7 @@ class Renter(models.Model):
         return str(self.phone)
 ```
 
-So for each renter we would like to have some specific information about them, but the unique identifier for each renter should be their phone number with some extra stuff that can be optional to fill in
+So, for each renter we would like to have some specific information about them, but the unique identifier for each renter should be their phone number with some extra stuff that can be optional to fill in.
 
 ```python
 class Renter(models.Model):
@@ -50,7 +50,7 @@ This is the amount that the renter will be charged, for the sake of currencies w
     city = models.CharField("City",max_length=1024)
 ```
 
-For the following fields they are all Character fields, but some of them can be optional by defining null=True,blank=True or if we remove them we can make sure that the user has to input them
+For the following fields they are all Character fields, but some of them can be optional by defining null=True,blank=True. On the other hand, if we remove them we can make sure that the user has to input them.
 We also defined something called max_length=1024 that will insure that the maximum amount of characters that a user can fill a field with in 1024 characters ( think twitter and their 140 character per tweet rule )
 
 ```python
@@ -65,7 +65,7 @@ We need to go to the top of the page and add the following line
 from django_countries.fields import CountryField
 ```
 
-Finally we defined a function with the name **str** that takes the object itself as a variable, this function will overwrite the default value when calling an object, so whenever we call an object it will return a stringify version of the persons phone number
+Finally we defined a function with the name **str** that takes the object itself as a variable, this function will overwrite the default value when calling an object, so whenever we call an object it will return a stringified version of the persons phone number.
 
 ```python
     def __str__(self):

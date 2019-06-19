@@ -12,7 +12,8 @@ def pay(request,token):
 ```
 
 This will be our first view and we will explain what’s going on here
-This view will accept a `token` parameter
+
+This view takes a `token` as a parameter
 
 ```python
 def pay(request,token):
@@ -24,6 +25,8 @@ And then will try to get a specific renter using that token
    renter = get_object_or_404(Renter, token=token)
 ```
 
+#maybe explain what the tap function is for like in just 3 words so it would make sense why we're sending the url and renter to it
+#how is this url being generated. and maybe give an example of how it will look like
 After that it will generate a url to send to the tap function along with the renter, but the tap function is something we haven’t done yet,
 
 ```python
@@ -49,4 +52,4 @@ from django.db.models import Q
 from datetime import datetime
 ```
 
-So the first question was what is this token ? and how is it related to a user… well we are going to create a new field in the renter model and call it token, and token is going to be a unique identifier to a specific user just like an ID but it changes whenever you finish a payment, that way whenever we want the user to pay his rent we can give him a special url with his token and he can use that url to pay only once, both to stop him from duplicating transactions and to make it more secure so no one can enumerate(guess) user id’s and fake-pay using those to see rent amount or other sensitive information.
+So the first question was what is this token ? and how is it related to a user… well, we are going to create a new field in the renter model and call it token, and token is going to be a unique identifier to a specific user just like an ID but it changes whenever you finish a payment. That way whenever we want the user to pay his rent we can give him a special url with his token. He can use that url to pay only once, both to stop him from duplicating transactions and to make it more secure so no one can enumerate(guess) user id’s and fake-pay using those to see rent amount or other sensitive information.
