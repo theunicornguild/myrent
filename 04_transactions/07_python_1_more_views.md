@@ -1,6 +1,6 @@
 ### Transaction List
 
-Let’s go to `transactions/views.py` and create our first view,
+Let’s go to `transactions/views.py` and create our list view for the transactions.
 
 ```python
 def transactionList(request,id):
@@ -16,9 +16,9 @@ def transactionList(request,id):
 
 This view will accept two things, the `request` and the `id` of a speicifc renter, it will try to get the renter or else it will redirect to a 404 page
 
-Next it will check if the user who requested that specific renter is the `landlord` who created the `renter` or not, if hes not he will be redirected to the list
+Next, it will check if the user who requested that specific renter is the `landlord` who created the `renter` or not. If he's not, he will be redirected to the list.
 
-If he was ther renter we will get all transactions made by that user using the following query
+If he was their renter we will get all transactions made by that user using the following query
 
 ```python
    transactions = Transaction.objects.filter(renter=renter)
@@ -91,6 +91,6 @@ This will take one thing only which is the `request`, from that we will grab the
     Transaction.objects.filter(renter__landlord=user,date__gte=timezone.now().replace(day=1, hour=0, minute=0, second=0, microsecond=0))
 ```
 
-What this does is, it looks thru all `transactions` and gets all the renters that below to a specific landlord in this case the person who requested this page, then it will filter the transaction by the date which they were initiated at, it will get the any dates that are greater “>” than the current date but replacing the day with the first day of the month and the hours/minutes/seconds/microseconds are replaced with 0 so it can make sure all the transactions are made at the start of the month exactly
+What this does is, it looks thru all `transactions` and gets all the renters that belong to a specific landlord in this case the person who requested this page. Then, it will filter the transaction by the date which they were initiated at, it will get the dates that are greater “>” than the current date but replacing the day with the first day of the month and the hours/minutes/seconds/microseconds are replaced with 0 so it can make sure all the transactions are made at the start of the month exactly.
 
-After that it will add those transactions into the context and sends it to the same list that we used earlier
+After that it will add those transactions into the context and sends it to the same list that we used earlier.

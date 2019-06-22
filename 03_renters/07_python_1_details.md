@@ -1,8 +1,8 @@
 ### Creating Details View
 
-Since we finished displaying all of the `renters` now we need to create a details page to show all of the information of a selected renter as the list will only show small amounts of data
+Since we finished displaying all of the `renters`, now we need to create a details page to show all of the information of a selected renter as the list will only show small amounts of data
 
-Lets type the following code
+Lets type the following code in the `views.py` file in the `main` folder.
 
 ```python
 def detailRenter(request,id):
@@ -24,19 +24,20 @@ And next it will pull the renter object from the database by using the Renter mo
    renter = Renter.objects.get(id=id)
 ```
 
-We specified that we need an object which have the same id as the one we provided
+We specified that we need an object which has the same id as the one we provided.
+
 A note, the first id is the name of the field while the 2nd id is the variable name that we have
 
-Next we don’t need to check if the user is authenticated but we check if the user that request the detail of the renter is the same user that created him
+Next we don’t need to check if the user is authenticated but we check if the user that requested the details of the renter is the same as user that created him
 
 ```python
    if request.user != renter.landlord:
        return redirect('list')
 ```
 
-And if he isn’t it will redirect him back the list page
+And if he isn’t it will redirect him back to the list page
 
-Last we render the details.html template page with the renter that we got
+Last, we render the `details.html` template page with the renter that we got
 
 ### Creating details template
 

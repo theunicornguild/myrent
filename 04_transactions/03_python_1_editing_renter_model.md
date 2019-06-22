@@ -8,13 +8,13 @@ At the top of the page add this new import
 from uuid import uuid4
 ```
 
-And in the `renter` model add this field
+And in the `Renter` model add this field
 
 ```python
    token = models.CharField(max_length=250,default=uuid4())
 ```
 
-And to generate a new token let’s create a method for the `renter` model
+And to generate a new token let’s create a method for the `Renter` model
 
 ```python
    def generate_url(self):
@@ -25,9 +25,10 @@ And to generate a new token let’s create a method for the `renter` model
 
 `a method is a function relating to the class so it should be indented inside of the class and not outside !`
 
-This url is our demo website and we are appending the unique token at the end of the url
+This url is our demo website and we are appending the unique token at the end of the url, it might differe in the case of Development vs Production as the url might be `http://127.0.0.1:8000/pay/` in the case of Development
 
 Now for the 2nd question that is still unanswered, what is the reverse(‘response’) ?
-Well `reverse` is a function that takes a url name and generates a the url using the name
 
-And so we need a view called `response` ! let’s create one
+Well `reverse` is a function that takes a url name and generates the url that has that name
+
+And so we need a view called `responsePage` ! let’s create one

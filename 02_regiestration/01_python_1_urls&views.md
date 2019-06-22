@@ -6,11 +6,11 @@ We can see there are a few folders that we created beforehand for you:
     - `main` will handle the renter models and views to display/add/delete/list renters
     - `transactions` will handle the payment gateway that we use in this case Tap
 
-And in each some of these applications we provided template folders
+And in some of these applications, we provided template folder.
 
 ### Setting up the URL's
 
-Before we start i’ll need you to type the following code in the urls.py file inside `myrent` folder
+Before we start I’ll need you to replace everything in the `urls.py` file inside `myrent` folder with the following.
 
 ```python
 from django.contrib import admin
@@ -48,7 +48,11 @@ urlpatterns = [
 ]
 ```
 
-You can see that most of the normal functions that are required to create a user / reset the password / change the password are provided here but we are missing the signup function in that list of functions and we will have to create one on our own.
+You can see that most of the normal functions that are required to create a user / reset the password / change the password are provided here but we are missing the signup function in that list of functions so we will have to create one on our own.
+
+You can see we used `as_view` and that is a special case for something called `class based views`, you can take a look here https://docs.djangoproject.com/en/2.2/topics/class-based-views/
+
+And in this case this class based view takes a specific template to render, which is `template_name`
 
 ### Importing in the Views
 
@@ -63,12 +67,15 @@ from django.shortcuts import render, redirect
 
 We import `login` and `authenticate`
 
-    - `Login` is a function that takes two parameters, a request and a user object, it will then add cookies to that specific request owner to indicate that he is now logged in as the user object provided
-    - `Authenticate` is function that takes to parameters, a username and a password. Because django encrypts passwords when signin up by default it will be impossible for us to know the correct password the user is inputing so django provided us with this function, it will take the password provided as a parameter and encrypt it again, if it matches the same encrypted password as the one in the user object that has the username that matches the username provided as the first parameter it will return the user object, if not it will return None
+- `Login` is a function that takes two parameters, a request and a user object, it will then add cookies to that specific request owner to indicate that he is now logged in as the user object provided
+- `Authenticate` is a function that takes to parameters, a username and a password. Since django encrypts passwords by deafault when signing up, it will be impossible for us to know whether the user is inputing the correct password. So, django provided us with this function which takes the password provided as a parameter and encrypt it to compare it with the encrypted password as the one in the user object that has the username that matches the username provided as the first parameter for the function. Then, It will return the user object, if not it will return None.
 
-We imported something called `UserCreationForm` which is also provided by django, its a form with three fiels, a username a password1 and a password2, the username is self explained, the password1 and password2 fields are both the password and confirm password fields as a form of security to check if they both match before submittig it as the final password
+We imported something called `UserCreationForm` which is also provided by django. It's a form with three fields, a username, a password1, and a password2. The username is self-explanatory, the password1 and password2 fields are both the password and confirm password fields as a form of security to check if they both match before submittig it as the final password.
 
-Then we imported `render` and `redirect`: - `Render` will accept 3 parameters, a request object, a html template and a dictionary, the dictionary can be empty or filled with data depending on the need of the function - `Redirect` will take either a url name or a url path for example `/` and sends the user to that page/url path
+Then we imported `render` and `redirect`:
+
+- `Render` will accept 3 parameters, a request object, a html template and a dictionary, the dictionary can be empty or filled with data depending on the need of the function
+- `Redirect` will take either a url name or a url path for example `/` and sends the user to that page/url path
 
 ### Creating signup view
 
@@ -90,13 +97,13 @@ def signup(request):
    return render(request, 'registration/signup.html', {'form': form})
 ```
 
-Let's explain this function one line at a time,
+Let's explain this function one line at a time:
 
 ```python
 def signup(request):
 ```
 
-We defined a function called signup and it will accept one parameter which is request
+We defined a function called signup and it takes one parameter which is request
 
 ```python
    if request.method == 'POST':
@@ -108,19 +115,19 @@ Then we check the request object for its method, if the method is a POST method 
        form = UserCreationForm(request.POST)
 ```
 
-Using the variable `form` it will fill the UserCreationForm with data from the request.POST
+Using the variable `form` it will fill the UserCreationForm with data from the request.POST which holds the username, password that are filled in the form in the template
 
 ```python
        if form.is_valid():
 ```
 
-It will check if that form is valid or not, depending on that it will do the following
+It will check if that form is valid or not, depending on that it will do the following, being valid is matching the structure that we set in the form `UserCreationForm` in this case matching the model structure
 
 ```python
            form.save()
 ```
 
-We will take that object from the form if it was valid and save it as an actual object in the database
+We will take that object from the form if it was valid and save it as an actual object in the database as a User object
 
 ```python
            username = form.cleaned_data.get('username')
@@ -153,7 +160,8 @@ After that it will redirect the user to the home page
    return render(request, 'registration/signup.html', {'form': form})
 ```
 
-But if the request is not a POST request, it will create an empty form and save it to a variable called form
-It will render the signup.html page and provide it the form as a context to the html page so the django templating system can use it
+But if the request is not a POST request, it will create an empty form and save it to a variable called form.
 
-The teamplates for the accounts application should be premade for you in the `accounts/templates/registration/ folder while the base.html and the 404.html pages are at`accounts/templates/` folder
+Then it will render the signup.html page and provide it the form as a context to the html page so the django templating system can use it
+
+The templates for the accounts application should be premade for you in the `accounts/templates/registration/` folder while the `base.html` and the `404.html` pages are at`accounts/templates/` folder

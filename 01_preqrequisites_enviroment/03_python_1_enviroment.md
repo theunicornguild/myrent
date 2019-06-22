@@ -1,6 +1,6 @@
 ### Creating the environment
 
-We will start by creating our development environment, in the terminal lets create a Development folder:
+We will start by creating our development environment, in the terminal let's create a Development folder:
 
 ```bash
 mkdir ~/Development
@@ -27,7 +27,7 @@ or for windows
 Virtualenv --python=”C:\Python3.7\python.exe” myrentenv
 ```
 
-### activate the virtualenv
+### Activate the virtualenv
 
 For MacOS/Linux
 

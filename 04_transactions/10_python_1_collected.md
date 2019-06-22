@@ -2,7 +2,7 @@
 
 Now let’s go back to the `transactions/views.py` to finish the last view we have there
 
-As we said this last view will grab everyone who paid, show their transactions and their total
+As we said, this last view will grab everyone who paid, show their transactions and their total
 
 Let’s type the following
 
@@ -26,19 +26,17 @@ In this view we take the user who initiated the request, then we use this query
     Transaction.objects.filter(renter__landlord=user,date__gte=timezone.now().replace(day=1, hour=0, minute=0, second=0, microsecond=0)).filter(status="CAPTURED")
 ```
 
-We take all the transactions, then grab the ones where the landlord is the person who initiated this request, after that we check for the date if it was within the beginning of this month, after that we check if the status on this transactions is “CAPTURED” which is the default for a successful payment using Tap's gateway
+We take all the transactions, then grab the ones where the landlord is the person who initiated this request. After that, we check for the date if it was within the beginning of this month. Finally, we check if the status on this transactions is “CAPTURED” which is the default for a successful payment using Tap's gateway.
 
 We set a variable called total to be = 0
 
-And for every transaction we increase the total by the amount that the transaction was paid, but we have to turn it into a float first because of change that might occur, in example 200.500KD etc
+And for every transaction we increase the total by the amount that the transaction was paid, but we have to turn it into a float first because of change that might occur, for example 200.500KD etc
 
-We take both those transactions and total and we send them to the html template
-
-`transactions/collected.html`
+We take both the transactions and total and we send them to the html template `transactions/collected.html`
 
 ### Creating the template
 
-So let’s create this template, go to `transactions/templates/transactions/` and create the file `collected.html` and inside it type the following
+So, let’s create this template, go to `transactions/templates/transactions/` and create the file `collected.html` and inside it type the following
 
 ```html
 {% extends 'base.html' %} {% load crispy_forms_tags %} {% block main %}
@@ -82,7 +80,7 @@ So let’s create this template, go to `transactions/templates/transactions/` an
 
 ### Creating a URL
 
-After that let’s create URL’s for the views that we created, create a new file and name it `urls.py` in the `transactions` folder
+After that, let’s create URL’s for the views that we created. Create a new file and name it `urls.py` in the `transactions` folder
 
 And type the following
 

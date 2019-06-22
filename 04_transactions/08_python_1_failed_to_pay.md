@@ -18,16 +18,18 @@ def failToPay(request):
 ```
 
 This will function kinda like the previous function but will only target the ones who failed to pay.
-So we get the user who initiated the request, and we get the current time
+
+So, we get the user who initiated the request, and we get the current time.
+
 From the time we get the year and the month and we set those to a variable called last_paid we then go to all the renters and issue this query
 
 ```python
    renters = Renter.objects.filter(landlord=user).exclude(last_paid=last_paid)
 ```
 
-In here we say, give us all the renters that belong to this `landlord(this user)` but exclude the ones who has the `last_paid` field that equals the `last_paid` that we created which is this year/month combo for example `2019-05`
+In here we say, give us all the renters that belong to this `landlord(this user)` but exclude the ones who has the `last_paid` field that equals the `last_paid` that we created which is this year/month combo for example `2019-05`.
 
-Then we send that to the context of this html page
+Then, we send that to the context of this html page
 
 ```python
    return render(request, 'transactions/failToPay.html', context)
@@ -35,7 +37,7 @@ Then we send that to the context of this html page
 
 ### Failed to Template
 
-And lets create this template too, go to `transactions/templates/transactions` and create a new file and name it `failToPay.html`
+Next, let's create this template. Go to `transactions/templates/transactions` and create a new file and name it `failToPay.html`
 And type the following inside
 
 ```html
