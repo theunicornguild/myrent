@@ -2,8 +2,7 @@
 
 Since we finished displaying all of the `renters`, now we need to create a details page to show all of the information of a selected renter as the list will only show small amounts of data
 
-#write it where?
-Lets type the following code
+Lets type the following code in the `views.py` file in the `main` folder.
 
 ```python
 def detailRenter(request,id):

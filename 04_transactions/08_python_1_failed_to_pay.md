@@ -26,6 +26,7 @@ From the time we get the year and the month and we set those to a variable calle
 ```python
    renters = Renter.objects.filter(landlord=user).exclude(last_paid=last_paid)
 ```
+
 In here we say, give us all the renters that belong to this `landlord(this user)` but exclude the ones who has the `last_paid` field that equals the `last_paid` that we created which is this year/month combo for example `2019-05`.
 
 Then, we send that to the context of this html page
@@ -79,5 +80,5 @@ And type the following inside
              </section>
 {% endblock %}
 ```
-# add it to the model first then use it here, I'd prefer to know what this field does before actually using it.
+
 But you might be wondering… we don’t have a `last_paid` field on the renter model, well you are right and we are going to create it right now !

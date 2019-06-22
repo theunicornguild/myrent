@@ -25,9 +25,10 @@ And then will try to get a specific renter using that token
    renter = get_object_or_404(Renter, token=token)
 ```
 
-#maybe explain what the tap function is for like in just 3 words so it would make sense why we're sending the url and renter to it
-#how is this url being generated. and maybe give an example of how it will look like
 After that it will generate a url to send to the tap function along with the renter, but the tap function is something we haven’t done yet,
+the tap function will take a Renter object and a url and it will send an API request to Tap's API and generate a url that we can send to our customers to pay thru.
+
+If you notice we created the url using this function `request.build_absolute_uri()` and if you want to learn more about it you can check out the Django documentation right here https://docs.djangoproject.com/en/2.2/ref/request-response/
 
 ```python
    url = request.build_absolute_uri('/')[:-1].strip("/") + reverse('response')

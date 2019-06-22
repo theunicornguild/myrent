@@ -77,7 +77,7 @@ So, let’s create this template, go to `transactions/templates/transactions/` a
              </section>
 {% endblock %}
 ```
-# in the previous section urls had their own page why is it different here
+
 ### Creating a URL
 
 After that, let’s create URL’s for the views that we created. Create a new file and name it `urls.py` in the `transactions` folder

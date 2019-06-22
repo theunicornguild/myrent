@@ -50,12 +50,19 @@ Since we checked that the user was actually authenticated we can then use `commi
        form = RenterForm()
    return render(request, 'renter/add.html', {'form': form})
 ```
-#mention that we'll be creating this template next
+
 But in the case that the request isn’t `POST` then it will generate an empty form and send it as context to the user when it directs him to the add renter template page.
 
+We will be creating this template in the next step so hold on.
+
 ### Creating a template
+
 #there is no templates folder in the main app to go to
-Now go to `main/templates/` and create a folder and call it `renter` inside of it create a new file and name it `add.html` and type the following
+Now go to `main` and create a folder and call it `templates` then inside of that newly created folder create a folder and call it `renter` inside of it create a new file and name it `add.html` .
+
+It should look like this `main/templates/renter/add.html`.
+
+and type the following inside the file.
 
 ```html
 {% extends 'base.html' %} {% load crispy_forms_tags %} {% block main %}
@@ -80,7 +87,7 @@ Now go to `main/templates/` and create a folder and call it `renter` inside of i
 Its a simple django template that uses the form that we sent thru the context, then we used crispy forms to make the form a little bit prettier all while extending from the base.html file at the block main location
 
 ### Creating a Form
-#I think its better to create the form before the using it in the view
+
 Now let’s create the form before we go any further, so in the `main` folder create a file and name it `forms.py` with the following information
 
 ```python

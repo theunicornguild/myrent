@@ -1,7 +1,6 @@
 ### Transaction List
-#how is this our first view?
-Let’s go to `transactions/views.py` and create our first view,
-#write which view this is
+
+Let’s go to `transactions/views.py` and create our list view for the transactions.
 
 ```python
 def transactionList(request,id):

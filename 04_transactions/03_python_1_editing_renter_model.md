@@ -24,12 +24,11 @@ And to generate a new token let’s create a method for the `Renter` model
 ```
 
 `a method is a function relating to the class so it should be indented inside of the class and not outside !`
-#mention that in their case it should be 127.0.0.1. unless that isn't the case
-This url is our demo website and we are appending the unique token at the end of the url
+
+This url is our demo website and we are appending the unique token at the end of the url, it might differe in the case of Development vs Production as the url might be `http://127.0.0.1:8000/pay/` in the case of Development
 
 Now for the 2nd question that is still unanswered, what is the reverse(‘response’) ?
 
 Well `reverse` is a function that takes a url name and generates the url that has that name
 
-#the view isn't called response thats the url
-And so we need a view called `response` ! let’s create one
+And so we need a view called `responsePage` ! let’s create one

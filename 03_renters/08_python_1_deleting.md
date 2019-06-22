@@ -2,8 +2,7 @@
 
 Now we finished the detail page for the renters and we can continue on to create a page that deletes a `Renter` object
 
-#where??
-Lets type the following code
+Lets type the following code in the `views.py` file in the `main` folder.
 
 ```python
 def deleteRenter(request,id):
