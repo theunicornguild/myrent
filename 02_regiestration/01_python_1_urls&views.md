@@ -45,6 +45,7 @@ urlpatterns = [
         path('password-reset/done/', views.PasswordResetDoneView.as_view(template_name='registration/reset_done.html'), name='password_reset_done'),
         path('password-change/', views.PasswordChangeView.as_view(template_name='registration/change_form.html'), name='password_change'),
         path('password-change/done/', views.PasswordChangeDoneView.as_view(template_name='registration/change_done.html'), name='password_change_done'),
+
 ]
 ```
 
@@ -165,3 +166,20 @@ But if the request is not a POST request, it will create an empty form and save 
 Then it will render the signup.html page and provide it the form as a context to the html page so the django templating system can use it
 
 The templates for the accounts application should be premade for you in the `accounts/templates/registration/` folder while the `base.html` and the `404.html` pages are at`accounts/templates/` folder
+
+### Adding Signup URL
+
+Let's go back to `accounts/urls.py` and add the following to the list of `urlpatterns`:
+
+```python
+urlpatterns = [
+        path('signup/', signup, name="signup"),
+...
+]
+```
+
+and import it at the top of the same file
+
+```python
+from accounts.views import signup
+```

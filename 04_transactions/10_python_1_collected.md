@@ -80,9 +80,15 @@ So, let’s create this template, go to `transactions/templates/transactions/` a
 
 ### Creating a URL
 
-After that, let’s create URL’s for the views that we created. Create a new file and name it `urls.py` in the `transactions` folder
+After that, let's go to `urls.py` in the `transactions` folder
 
-And type the following
+And add the following to the `urlpatterns`
+
+```python
+   path('collected/', collected, name="collected")
+```
+
+it should look like this
 
 ```python
 from django.urls import path
@@ -94,5 +100,6 @@ urlpatterns = [
    path('newTransactions/', newTransactions, name='newTransactions'),
    path('failToPay/', failToPay, name="failToPay"),
    path('collected/', collected, name="collected")
+
 ]
 ```

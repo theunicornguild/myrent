@@ -20,3 +20,18 @@ In here we grabbed the `renter` object that is required, we checked that the use
 ```
 
 This command deleted the renter object and then redirects the user to the list
+
+### Urls
+
+Let's go to the `main` folder and create a new file and name it `urls.py`
+
+And inside lets add the following code to the `urlpatterns`
+
+```python
+urlpatterns = [
+   path('add/', newRenter, name='add'),
+   path('list/', listRenters, name='list'),
+   path('details/<int:id>/', detailRenter, name='details'),
+   path('delete/<int:id>/', deleteRenter, name='delete'),
+]
+```

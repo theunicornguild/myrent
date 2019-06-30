@@ -30,18 +30,19 @@ def responsePage(request):
 ```
 
 Let’s start explaining what is happening here:
- * The function expects a `tap_id` get query.
- * It will find the transaction that belongs to that `tap_id`.
- * If the `tapId` is not null, and the transaction is null it will start the following code:
-     * It will define a variable called `jsonResponse`, which will hold the output of the function `checkpayment` that takes the `tap_id` as a parameter.
-     * At this point `jsonResponse` will have lots of information regarding the payment that we created, and we need to take them one by one to organize our data.
-     #I dont think the udf2 will be understood because they haven't seen how the payments been done and how the udf2 came into existance....maybe if after a new function is used, it should be defined and explained directly after or before
-     * We will get the `renter` that initiated the payment using the token, the `jsonReponse` should have something called `udf2` which stands for user defined field, in here we can add extra information to the payment, and in this instance we added the unique token that we generated.
-     * Then we will create a new `Transaction` object from the data that we got from `jsonResponse`.
-     * We will save the `transaction` and initiate 2 methods on the renter, which are `renter.paid()` and `renter.generate_url()`
-         * `renter.paid()` is yet to be created we will fill the gap on that later.
-         * `renter.generate_url()` will change the token that the user has so it should be a unique id again.
-     * After that, we will render the results using `transactions/result.html`.
+
+- The function expects a `tap_id` get query.
+- It will find the transaction that belongs to that `tap_id`.
+- If the `tapId` is not null, and the transaction is null it will start the following code:
+  - It will define a variable called `jsonResponse`, which will hold the output of the function `checkpayment` that takes the `tap_id` as a parameter.
+  - At this point `jsonResponse` will have lots of information regarding the payment that we created, and we need to take them one by one to organize our data.
+    #I dont think the udf2 will be understood because they haven't seen how the payments been done and how the udf2 came into existance....maybe if after a new function is used, it should be defined and explained directly after or before
+  - We will get the `renter` that initiated the payment using the token, the `jsonReponse` should have something called `udf2` which stands for user defined field, in here we can add extra information to the payment, and in this instance we added the unique token that we generated.
+  - Then we will create a new `Transaction` object from the data that we got from `jsonResponse`.
+  - We will save the `transaction` and initiate 2 methods on the renter, which are `renter.paid()` and `renter.generate_url()`
+    - `renter.paid()` is yet to be created we will fill the gap on that later.
+    - `renter.generate_url()` will change the token that the user has so it should be a unique id again.
+  - After that, we will render the results using `transactions/result.html`.
 
 ### Creating a response template
 
@@ -74,4 +75,26 @@ And type the following
    </div>
 </div>
 {% endblock %}
+```
+
+### Creating a URL
+
+After that, let's go to `urls.py` in the `transactions` folder
+
+And add the following to the `urlpatterns`
+
+```python
+   path('response/', responsePage, name='response'),
+```
+
+it should look like this
+
+```python
+from django.urls import path
+from transactions.views import *
+urlpatterns = [
+   path('pay/<str:token>/', pay, name='pay'),
+   path('response/', responsePage, name='response'),
+
+]
 ```

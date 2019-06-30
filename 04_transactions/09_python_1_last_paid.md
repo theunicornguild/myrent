@@ -32,3 +32,13 @@ from uuid import uuid4
 import plivo
 from datetime import datetime
 ```
+
+### Fixing the Form
+
+After we added two new more fields we need to exlude them from the Renter form
+
+So go to the `main/forms.py` file and add the following to the `exclude` variable
+
+```python
+       exclude = ('landlord','token','last_paid')
+```

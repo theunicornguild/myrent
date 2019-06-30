@@ -88,3 +88,19 @@ And type the following
 </div>
 {% endblock %}
 ```
+
+### Urls
+
+Let's go to the `main` folder and create a new file and name it `urls.py`
+
+And inside lets add the following code to the `urlpatterns`
+
+```python
+urlpatterns = [
+   path('add/', newRenter, name='add'),
+   path('list/', listRenters, name='list'),
+   path('details/<int:id>/', detailRenter, name='details'),
+   path('delete/<int:id>/', deleteRenter, name='delete'),
+   path('edit/<int:id>/', editRenter, name='edit'),
+]
+```
