@@ -71,6 +71,29 @@ So go to `transactions/templates/transactions/list.html` and type the following
 {% endblock %}
 ```
 
+### Creating a URL
+
+After that, let's go to `urls.py` in the `transactions` folder
+
+And add the following to the `urlpatterns`
+
+```python
+   path('transactions/<int:id>/', transactionList, name='transactions'),
+```
+
+it should look like this
+
+```python
+from django.urls import path
+from transactions.views import *
+urlpatterns = [
+   path('pay/<str:token>/', pay, name='pay'),
+   path('response/', responsePage, name='response'),
+   path('transactions/<int:id>/', transactionList, name='transactions'),
+
+]
+```
+
 ### New Transactions
 
 The next view is the new transactions one, let’s type the following in the same file
@@ -94,3 +117,27 @@ This will take one thing only which is the `request`, from that we will grab the
 What this does is, it looks thru all `transactions` and gets all the renters that belong to a specific landlord in this case the person who requested this page. Then, it will filter the transaction by the date which they were initiated at, it will get the dates that are greater “>” than the current date but replacing the day with the first day of the month and the hours/minutes/seconds/microseconds are replaced with 0 so it can make sure all the transactions are made at the start of the month exactly.
 
 After that it will add those transactions into the context and sends it to the same list that we used earlier.
+
+### Creating a URL
+
+After that, let's go to `urls.py` in the `transactions` folder
+
+And add the following to the `urlpatterns`
+
+```python
+   path('newTransactions/', newTransactions, name='newTransactions'),
+```
+
+it should look like this
+
+```python
+from django.urls import path
+from transactions.views import *
+urlpatterns = [
+   path('pay/<str:token>/', pay, name='pay'),
+   path('response/', responsePage, name='response'),
+   path('transactions/<int:id>/', transactionList, name='transactions'),
+   path('newTransactions/', newTransactions, name='newTransactions'),
+
+]
+```

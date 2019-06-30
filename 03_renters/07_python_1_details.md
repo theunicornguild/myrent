@@ -117,3 +117,19 @@ And type the following code in
 </div>
 {% endblock %}
 ```
+
+### Urls
+
+Let's go to the `main` folder and create a new file and name it `urls.py`
+
+And inside lets add the following code to the `urlpatterns`
+
+```python
+urlpatterns = [
+   path('add/', newRenter, name='add'),
+   path('list/', listRenters, name='list'),
+   path('details/<int:id>/', detailRenter, name='details'),
+]
+```
+
+The only major difference is when we get to the last url we made it dynamic and can accept a variable which is an integer called `id`, different urls will do the same later on

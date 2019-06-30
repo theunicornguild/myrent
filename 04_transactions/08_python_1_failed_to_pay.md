@@ -81,4 +81,29 @@ And type the following inside
 {% endblock %}
 ```
 
+### Creating a URL
+
+After that, let's go to `urls.py` in the `transactions` folder
+
+And add the following to the `urlpatterns`
+
+```python
+   path('failToPay/', failToPay, name="failToPay"),
+```
+
+it should look like this
+
+```python
+from django.urls import path
+from transactions.views import *
+urlpatterns = [
+   path('pay/<str:token>/', pay, name='pay'),
+   path('response/', responsePage, name='response'),
+   path('transactions/<int:id>/', transactionList, name='transactions'),
+   path('newTransactions/', newTransactions, name='newTransactions'),
+   path('failToPay/', failToPay, name="failToPay"),
+
+]
+```
+
 But you might be wondering… we don’t have a `last_paid` field on the renter model, well you are right and we are going to create it right now !

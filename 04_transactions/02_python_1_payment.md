@@ -54,3 +54,17 @@ from datetime import datetime
 ```
 
 So the first question was what is this token ? and how is it related to a user… well, we are going to create a new field in the renter model and call it token, and token is going to be a unique identifier to a specific user just like an ID but it changes whenever you finish a payment. That way whenever we want the user to pay his rent we can give him a special url with his token. He can use that url to pay only once, both to stop him from duplicating transactions and to make it more secure so no one can enumerate(guess) user id’s and fake-pay using those to see rent amount or other sensitive information.
+
+### Creating a URL
+
+After that, let’s create URL’s for the views that we created. Create a new file and name it `urls.py` in the `transactions` folder
+
+And type the following
+
+```python
+from django.urls import path
+from transactions.views import *
+urlpatterns = [
+   path('pay/<str:token>/', pay, name='pay'),
+]
+```
