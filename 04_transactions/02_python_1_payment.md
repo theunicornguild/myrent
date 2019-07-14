@@ -19,25 +19,29 @@ This view takes a `token` as a parameter
 def pay(request,token):
 ```
 
-And then will try to get a specific renter using that token
+And then we will try to get a specific renter using that token
 
 ```python
    renter = get_object_or_404(Renter, token=token)
 ```
 
 After that it will generate a url to send to the tap function along with the renter, but the tap function is something we haven’t done yet,
-the tap function will take a Renter object and a url and it will send an API request to Tap's API and generate a url that we can send to our customers to pay thru.
+the tap function will take a Renter object and a url and it will send an API request to Tap's API and generate a url that we can send to our customers to pay through.
 
 If you notice we created the url using this function `request.build_absolute_uri()` and if you want to learn more about it you can check out the Django documentation right here https://docs.djangoproject.com/en/2.2/ref/request-response/
+
+But a rough explanination of this function is that it takes the url that the request has for example, if your accessing this view using this url `http://127.0.0.1:8000/url` it will return that same url, but if you access it using this url `http://localhost:8000/url` it will also return the `localhost` instead of the IP address depending on how the user is accessing the url, and after that we strip the url so it removes everything after the first backslash `/` and give us a url that we can add stuff to for example `http://localhost:8000`
 
 ```python
    url = request.build_absolute_uri('/')[:-1].strip("/") + reverse('response')
    response = tap(renter,url)
 ```
 
+And `reverse` is a function that takes a url name and generates the url that has that name
+
 After the tap function returns a response we will get a specific url and we need to redirect the user to that url. This might seem too much by now and a bit confusing but trust me we will go through everything
 
-Common questions would be, What is a token ? what is reverse(‘response’) ? Where did the tap function come from?
+Common questions would be, What is a token ? Where did the tap function come from?
 
 And we will handle them one by one right after you import the required stuff at the top of your `views.py` file in the `transactions` folder
 

@@ -16,6 +16,9 @@ Let’s go to the `main/models.py` file and add the following method to the `Ren
 ```
 # add a link to plivo, you can maybe make `plivo` API clickable
 # plivo is asking for a work email, it isn't taking hotmail or gmail....so can't sign up
+
+You can signup to Plivo here https://www.plivo.com/ , just keep in mind you need a `work email`, an alternative is using https://www.nexmo.com/ if will work the same way with some difference in how we handle the API and what we import etc
+
 This method will define how we send our SMS to the client, we are using the `Plivo` API for sending SMS. After you signup there, you should get a number that you can use to send messeges from. 
  * Insert that phone number into the “src” field.
  * Create your special body for the SMS and format it in a certain way, you may notice we are using the other Renter method which is generate_url() and that method will return a url that we can use to share with the user for payment. 

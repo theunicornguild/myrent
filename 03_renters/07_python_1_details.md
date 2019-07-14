@@ -120,7 +120,7 @@ And type the following code in
 
 ### Urls
 
-Let's go to the `main` folder and create a new file and name it `urls.py`
+Let's go to the `main` folder and edit `urls.py`
 
 And inside lets add the following code to the `urlpatterns`
 
