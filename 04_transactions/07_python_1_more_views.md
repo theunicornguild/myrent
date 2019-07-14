@@ -114,7 +114,7 @@ This will take one thing only which is the `request`, from that we will grab the
     Transaction.objects.filter(renter__landlord=user,date__gte=timezone.now().replace(day=1, hour=0, minute=0, second=0, microsecond=0))
 ```
 
-What this does is, it looks thru all `transactions` and gets all the renters that belong to a specific landlord in this case the person who requested this page. Then, it will filter the transaction by the date which they were initiated at, it will get the dates that are greater “>” than the current date but replacing the day with the first day of the month and the hours/minutes/seconds/microseconds are replaced with 0 so it can make sure all the transactions are made at the start of the month exactly.
+What this does is, it looks through all `transactions` and gets all the renters that belong to a specific landlord in this case the person who requested this page. Then, it will filter the transaction by the date which they were initiated at, it will get the dates that are greater “>” than the current date but replacing the day with the first day of the month and the hours/minutes/seconds/microseconds are replaced with 0 so it can make sure all the transactions are made at the start of the month exactly.
 
 After that it will add those transactions into the context and sends it to the same list that we used earlier.
 

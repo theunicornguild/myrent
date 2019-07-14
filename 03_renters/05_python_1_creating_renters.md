@@ -10,7 +10,7 @@ class RenterForm(forms.ModelForm):
 
    class Meta:
        model = Renter
-       exclude = ('landlord')
+       exclude = ('landlord',)
 ```
 
 In this case we imported the model that we would like to create a form for and then we created a class and named it `RenterForm` which inherits from `forms.ModelForm`
@@ -103,7 +103,7 @@ and type the following inside the file.
 {% endblock %}
 ```
 
-Its a simple django template that uses the form that we sent thru the context, then we used crispy forms to make the form a little bit prettier all while extending from the base.html file at the block main location
+Its a simple django template that uses the form that we sent through the context, then we used crispy forms to make the form a little bit prettier all while extending from the base.html file at the block main location
 
 Now we have successfully created a function that can create Renter objects and relate them to the current logged in user, we can now start listing the renters that the current user “owns”
 

@@ -77,20 +77,26 @@ Inside that file lets type the following
              </section>
 
 {% endblock %}
+
 ```
 
 You will notice we have various urls in this page that won’t work and will probably cause errors if you decided to run the application at this point so if you want to run it at this point you need to comment out or remove this portion of the code
 
 ```html
-<td class="text-center">{% if last_paid == renter.last_paid %}<span class="badge badge-success">Paid</span>{% else %}<span class="badge badge-danger">UnPaid</span>{% endif %}</td>
                          <td class="text-center">
-                                       <a  href={% url 'edit' id=renter.id %} class="btn btn-primary"><i class="fa fa-edit"></i></a>
-                                       <a  href={% url 'details' id=renter.id %} class="btn btn-secondary"><i class="fa fa-info-circle"></i></a>
-                                       <a  href={% url 'delete' id=renter.id %} class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                                       {% if last_paid != renter.last_paid %}
-                                       <a  href={% url 'sendPayment' id=renter.id %} class="btn btn-warning"><i class="fa fa-envelope"></i></a>
-                                       {% endif %}
-
+                              {% if last_paid == renter.last_paid %}
+                                <span class="badge badge-success">Paid</span>
+                              {% else %}
+                                <span class="badge badge-danger">UnPaid</span>
+                              {% endif %}
+                         </td>
+                         <td class="text-center">
+                               <a  href={% url 'edit' id=renter.id %} class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                               <a  href={% url 'details' id=renter.id %} class="btn btn-secondary"><i class="fa fa-info-circle"></i></a>
+                               <a  href={% url 'delete' id=renter.id %} class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                               {% if last_paid != renter.last_paid %}
+                                  <a  href={% url 'sendPayment' id=renter.id %} class="btn btn-warning"><i class="fa fa-envelope"></i></a>
+                               {% endif %}
                          </td>
 ```
 
@@ -98,7 +104,7 @@ But the main thing about this page is displaying the contents of each renter and
 
 ### Urls
 
-Let's go to the `main` folder and create a new file and name it `urls.py`
+Let's go to the `main` folder and edit `urls.py`
 
 And inside lets add the following code to the `urlpatterns`
 
@@ -122,4 +128,4 @@ And type the following code in
   ]
 ```
 
-And make sure this `path` is the last one in the urlpatterns to it matches with any request that the user makes `THIS IS VERY IMPORTANT`
+And make sure this `path` is the last one in the urlpatterns so it matches with any request that the user makes `THIS IS VERY IMPORTANT`

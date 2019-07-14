@@ -1,7 +1,6 @@
 ### Renter's model
 
-Let’s move to the other application named `main`.
-We are gonna start by creating our first model for this application which is the `Renter` model.
+Here we will be creating the model for the `Renter` objects, it's the first model that we create and it will handle saving Renter's to our database 
 Go to the folder `main` and open up `models.py`.
 
 We are gonna copy/paste this in and explain it as we go,
