@@ -14,8 +14,6 @@ Let’s go to the `main/models.py` file and add the following method to the `Ren
        )
        return msg
 ```
-# add a link to plivo, you can maybe make `plivo` API clickable
-# plivo is asking for a work email, it isn't taking hotmail or gmail....so can't sign up
 
 You can signup to Plivo here https://www.plivo.com/ , just keep in mind you need a `work email`, an alternative is using https://www.nexmo.com/ if will work the same way with some difference in how we handle the API and what we import etc
 
