@@ -51,7 +51,7 @@ It will then use `json.dumps` to format the payload in a way so that we can send
 After that, we need to see the list of transactions that has been made. So, let's create a couple of views. A view to show a list of transactions made by a specific renter, a view to show all the new transactions made this month, a view to show all the renters that did not pay rent this month, and finally a view to show how much we collected this month, so all valid transactions and the sum of them.
 
 
-### Trello
+### Trello & Git Workflow
 
 With this done we can go to our `Trello` board and move the card `Pay functionality` and `Generate Unique url to send as an SMS for payments` to the `Review` list
 

@@ -104,7 +104,7 @@ urlpatterns = [
 ]
 ```
 
-### Trello
+### Trello & Git Workflow
 
 With this done we can go to our `Trello` board and move the card `As a user I can view newest successful transactions` to the `Review` list
 

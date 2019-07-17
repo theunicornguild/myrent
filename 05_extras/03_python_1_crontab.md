@@ -30,6 +30,6 @@ For example:
 
 `Important notes: Make sure the path to the python executable in your virtualenv is correct and make sure the manage.py path for your project is correct or else this will not work`
 
-### Trello
+### Trello & Git Workflow
 
 With this done we can go to our `Trello` board and move the card `Create a cronjob to run the custom django command every start of a month` to the `Review` list

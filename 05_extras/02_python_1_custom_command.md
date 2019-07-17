@@ -26,7 +26,7 @@ class Command(BaseCommand):
 
 When you start it using `python manage.py smser`, this function will grab all the renter objects and for each one of them it will call the `.sms()` method on them to automate sending the SMS messeges.
 
-### Trello
+### Trello & Git Workflow
 
 With this done we can go to our `Trello` board and move the card `Create a custom django command to send renters their sms` to the `Review` list
 
