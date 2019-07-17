@@ -53,7 +53,7 @@ And we need to create a url for this new view, so go to `main/urls.py` and add t
    path('sendPayment/<int:id>/', sendPayment, name='sendPayment'),
 ```
 
-### Trello
+### Trello & Git Workflow
 
 With this done we can go to our `Trello` board and move the card `Send an SMS functionality` to the `Review` list
 
