@@ -1,3 +1,8 @@
+
+### Trello
+
+With this done we can go to our `Trello` board and move the card `As a user I can view my renter list` to the `Doing` list
+
 ### Listing Renters
 
 So in the `views.py` file in the `main` folder lets create the following function and explain how it works
@@ -129,3 +134,15 @@ And type the following code in
 ```
 
 And make sure this `path` is the last one in the urlpatterns so it matches with any request that the user makes `THIS IS VERY IMPORTANT`
+
+
+### Trello & Git workflow
+
+With this done we can go to our `Trello` board and move the card `As a user I can view my renter list` to the `Review` list
+
+Open the terminal in this current project and type the following
+
+```bash
+git add .
+git commit -m "As a user I can view my renter list"
+```

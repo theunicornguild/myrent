@@ -1,3 +1,9 @@
+
+### Trello
+
+With this done we can go to our `Trello` board and move the card `As a user I can view a specific renter` to the `Doing` list
+
+
 ### Creating Details View
 
 Since we finished displaying all of the `renters`, now we need to create a details page to show all of the information of a selected renter as the list will only show small amounts of data
@@ -133,3 +139,15 @@ urlpatterns = [
 ```
 
 The only major difference is when we get to the last url we made it dynamic and can accept a variable which is an integer called `id`, different urls will do the same later on
+
+
+### Trello & Git workflow
+
+With this done we can go to our `Trello` board and move the card `As a user I can view a specific renter` to the `Review` list
+
+Open the terminal in this current project and type the following
+
+```bash
+git add .
+git commit -m "As a user I can view a specific renter"
+```

@@ -49,3 +49,15 @@ It will then create a payload which is an object and fill the data using the ren
 It will then use `json.dumps` to format the payload in a way so that we can send it in a request, and then post that payload with some special headers to the tap api. Afterwards, getting whatever tap responds with and return it back ( in this case tap will give us a payment url to send to our renter. Keep in mind whenever we use `requests.request()` this is a hidden request that the normal user doesn’t see and its server to server communications)
 
 After that, we need to see the list of transactions that has been made. So, let's create a couple of views. A view to show a list of transactions made by a specific renter, a view to show all the new transactions made this month, a view to show all the renters that did not pay rent this month, and finally a view to show how much we collected this month, so all valid transactions and the sum of them.
+
+
+### Trello
+
+With this done we can go to our `Trello` board and move the card `Pay functionality` and `Generate Unique url to send as an SMS for payments` to the `Review` list
+
+Open the terminal in this current project and type the following
+
+```bash
+git add .
+git commit -m "Pay functionality & Unique url's"
+```

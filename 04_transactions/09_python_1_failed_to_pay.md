@@ -1,3 +1,7 @@
+### Trello
+
+With this done we can go to our `Trello` board and move the card `As a user I can check renters who did not pay` to the `Doing` list
+
 ### Failed To Pay View
 
 Next is the `renters` who failed to pay this month
@@ -107,3 +111,14 @@ urlpatterns = [
 ```
 
 But you might be wondering… we don’t have a `last_paid` field on the renter model, well you are right and we are going to create it right now !
+
+### Trello & Git Workflow
+
+With this done we can go to our `Trello` board and move the card `As a user I can check renters who did not pay` to the `Review` list
+
+Open the terminal in this current project and type the following
+
+```bash
+git add .
+git commit -m "As a user I can check renters who did not pay"
+```

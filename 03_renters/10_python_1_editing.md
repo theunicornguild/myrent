@@ -1,3 +1,8 @@
+
+### Trello
+
+With this done we can go to our `Trello` board and move the card `As a user I can edit a renter` to the `Doing` list
+
 ### Creating Editing view
 
 Last but not least is the edit renter page, this will be very similar to both the details view and the create view, we will see why now
@@ -103,4 +108,15 @@ urlpatterns = [
    path('delete/<int:id>/', deleteRenter, name='delete'),
    path('edit/<int:id>/', editRenter, name='edit'),
 ]
+```
+
+### Trello & Git Workflow
+
+With this done we can go to our `Trello` board and move the card `As a user I can edit a renter` to the `Review` list
+
+Open the terminal in this current project and type the following
+
+```bash
+git add .
+git commit -m "As a user I can edit a renter"
 ```
