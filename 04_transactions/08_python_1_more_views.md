@@ -1,3 +1,7 @@
+### Trello
+
+With this done we can go to our `Trello` board and move the card `As a user I can see a list of transactions made by a renter` to the `Doing` list
+
 ### Transaction List
 
 Let’s go to `transactions/views.py` and create our list view for the transactions.
@@ -94,6 +98,7 @@ urlpatterns = [
 ]
 ```
 
+
 ### New Transactions
 
 The next view is the new transactions one, let’s type the following in the same file
@@ -140,4 +145,15 @@ urlpatterns = [
    path('newTransactions/', newTransactions, name='newTransactions'),
 
 ]
+```
+
+### Trello & Git Workflow
+
+With this done we can go to our `Trello` board and move the card `As a user I can see a list of transactions made by a renter` to the `Review` list
+
+Open the terminal in this current project and type the following
+
+```bash
+git add .
+git commit -m "As a user I can see a list of transactions made by a renter"
 ```

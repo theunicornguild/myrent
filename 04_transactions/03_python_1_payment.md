@@ -1,3 +1,9 @@
+
+### Trello
+
+With this done we can go to our `Trello` board and move the card `Pay functionality` to the `Doing` list
+
+
 ### Creating Payment View
 
 Let’s start doing that! Go to `transactions/views.py` and being typing

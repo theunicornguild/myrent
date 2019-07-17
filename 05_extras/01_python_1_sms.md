@@ -1,3 +1,7 @@
+### Trello
+
+With this done we can go to our `Trello` board and move the card `Send an SMS functionality` to the `Doing` list
+
 ### SMS Functionality
 
 Finally, we need to handle the SMS functionality of the application, so whenever a new month have passed we send users an SMS with their payment link
@@ -47,4 +51,15 @@ And we need to create a url for this new view, so go to `main/urls.py` and add t
 
 ```python
    path('sendPayment/<int:id>/', sendPayment, name='sendPayment'),
+```
+
+### Trello
+
+With this done we can go to our `Trello` board and move the card `Send an SMS functionality` to the `Review` list
+
+Open the terminal in this current project and type the following
+
+```bash
+git add .
+git commit -m "SMS functionality"
 ```

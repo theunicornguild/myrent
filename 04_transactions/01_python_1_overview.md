@@ -1,0 +1,3 @@
+### Overview
+
+In this chapter we will be covering transactions and how to use Tap's API to generate payment links to send to users, we will also make sure that each user has a new field that will indicate that he paid or not this month, we will also make views to show us list of people that didn't pay this month and we will also create a view to show us how much we collected this month gathering all successful transactions made by renters belonging to one user(landlord) in this case and then adding up the total to show him how much he collected 

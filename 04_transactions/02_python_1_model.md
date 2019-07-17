@@ -30,3 +30,14 @@ class Transaction(models.Model):
 ```
 
 You can notice that we defined multiple fields and almost all of them are optional except for the `renter`. The reason behind that is because when a `renter` initiates a payment he might not continue doing so and we are filling this `transaction` model after either a payment succeded or failed.
+
+### Migration
+
+Now we can go to the terminal, make sure we are in the main folder of the project and both submit and make sure that the changes we did to the model can go through without issues to the database
+
+Type the following
+
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```

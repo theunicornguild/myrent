@@ -1,3 +1,7 @@
+### Trello
+
+With this done we can go to our `Trello` board and move the card `Create a cronjob to run the custom django command every start of a month` to the `Doing` list
+
 ### Automation
 
 For the final stage, after you finish deployment for your server, as the user who controls the django project `(NOT ROOT)` do the following:
@@ -25,3 +29,7 @@ For example:
 - Then we add the command that we want to run so it looks like this `5 4 * * /home/django/env/bin/python /home/django/myrent/manage.py migrate` as an example
 
 `Important notes: Make sure the path to the python executable in your virtualenv is correct and make sure the manage.py path for your project is correct or else this will not work`
+
+### Trello
+
+With this done we can go to our `Trello` board and move the card `Create a cronjob to run the custom django command every start of a month` to the `Review` list

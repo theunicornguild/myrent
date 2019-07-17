@@ -1,3 +1,9 @@
+
+### Trello
+
+With this done we can go to our `Trello` board and move the card `As a user I can delete renter` to the `Doing` list
+
+
 ### Creating Delete View
 
 Now we finished the detail page for the renters and we can continue on to create a page that deletes a `Renter` object
@@ -34,4 +40,15 @@ urlpatterns = [
    path('details/<int:id>/', detailRenter, name='details'),
    path('delete/<int:id>/', deleteRenter, name='delete'),
 ]
+```
+
+### Trello & Git Workflow
+
+With this done we can go to our `Trello` board and move the card `As a user I can delete renter` to the `Review` list
+
+Open the terminal in this current project and type the following
+
+```bash
+git add .
+git commit -m "As a user I can delete a renter"
 ```

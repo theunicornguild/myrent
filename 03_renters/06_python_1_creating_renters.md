@@ -1,3 +1,9 @@
+
+### Trello
+
+With this done we can go to our `Trello` board and move the card `As a user I can add renters` to the `Doing` list
+
+
 ### Creating a Form
 
 Now let’s create the form to add Renters, so in the `main` folder create a file and name it `forms.py` with the following information
@@ -148,3 +154,15 @@ urlpatterns = [
 ```
 
 We “included” the urls in the `main/urls.py`
+
+
+### Trello & Git workflow
+
+With this done we can go to our `Trello` board and move the card `As a user I can add renters` to the `Review` list
+
+Open the terminal in this current project and type the following
+
+```bash
+git add .
+git commit -m "As a user I can add renters"
+```

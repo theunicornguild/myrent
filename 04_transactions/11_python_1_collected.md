@@ -103,3 +103,14 @@ urlpatterns = [
 
 ]
 ```
+
+### Trello
+
+With this done we can go to our `Trello` board and move the card `As a user I can view newest successful transactions` to the `Review` list
+
+Open the terminal in this current project and type the following
+
+```bash
+git add .
+git commit -m "As a user I can view newest successful transactions"
+```
