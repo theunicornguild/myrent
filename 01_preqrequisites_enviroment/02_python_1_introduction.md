@@ -1,32 +1,25 @@
 ### Introduction 
 
-Hello, and welcome to this tutorial, we will be creating a semi-complicated django application that relies heavily on external API endpoints, the idea of this project is creating an automated way to manage rental payments, the user only has to add his/her renter’s information and automate the process of reminding and collecting monthly rent with a clear view of who paid and who has’t paid yet.
+Hello, and welcome to this tutorial, we will be creating a semi-complicated django application that relies heavily on external APIs. You will be creating an automated rental payments management system. The user only has to add their renters/tenants information and automate the process of "reminding" and "collecting" the monthly rent, with a clear view of who paid and who hasn't.
 
 The technologies that will be used in this project are:
-
     - Django
-    - Requests python package
+    - Python's requests library
     - Pilov SMS API
-    - crontab linux command
+    - Crontab linux command
 
-The user will be able to add a renter using their phone number among other information. Using the pilov package we will be sending that renter an sms msg with a payment url that we generate using Tap’s API to collect the money. After the payment is finished the user can get a receipt of their payment and see its status.
+Using the pilov API, we will be sending the renter an sms message with a payment url that we will be generating using TAP API to collect the money. After the payment is completed, the user will receive a receipt and see their payment's status.
 
 ### Overview 
 
-in this project we will learn how to use some advanced to intermidate consepts in Django and Python to finish our project, We will be using the django auth model to generate our login/registration system which will allow users to signup login or even reset their password in the case they forgot it, after that we will create a Renter model that will hold each renter’s information and then link that renter to a specific user, that user will then be the landlord and will have complete control over the user information like rent address etc… 
+In this project we will learn how to use some intermidate to advanced concepts in Python and Django to complete our project. We will be using the Django Auth Model to create our authentication system, which will allow users to signup/ login and reset their password (in the case they forgot it). Next, we will create a `Renter` model that will hold each renter’s information. These created renter objects will be related to the landlord (which is a user). Once we're finished creating the models, we will then create pages that will allow the landlords to create/edit/delete their renters. We'll also see how to create a `superuser`, a user which will have complete admin privileges over the application. 
 
-After we create the model we will then create pages to allow users to create their renters or even edit/delete them if they wish then we will create a page to show the full details of a specific renter.
+Then we will create a `Transaction` model, which will store the information about all the payment attempts from a renter to a user, whether they are either successful or failures. Those transactions will be connected to the renter and to allow the landlord the ability to see/track those transactions.
 
-We will also create a superuser in this Django application which will serve as the owner of this application.
+We will also create provide the landlords with the ability to filter all renters/tenants who have failed to pay, so they can inqure the reason of the tardiness/absence of the payment. 
 
-Then we will create a Transaction model that will have the information about a specific attempt of payment from a renter to a user either success or fail, we will link that transaction to a renter and then give the user the ability to see those transactions as a list or in specific detail, we will also create a new field in the renter model to indicate when was the last month that this renter has paid, and it should change whenever the renter has created a successful payment transaction.
+Some of the extra features we will be working on, includes:
+1. Sending the user an SMS message at the beginning of every month.
+2. Create a corntab job which will run automaticly every month and it will trigger the sending of those SMS messages.
 
-Using this new field that we created we will also filter all those renters who failed to pay this month so the user can inqure the reason of the late payment/none payment. 
-
-And for transactions to go through we will hide the user with a unique token that refreshes to a new one whenever there is a new payment so we can always provide them with a new payment url.
-
-Some of the extra stuff that we will be doing include sending the user an SMS message at the beginning of every month using the Plivo API and creating a custom django manage command which is accessable using `manage.py` to send all the renters who haven’t recived an SMS this month a new message.
-
-We will also create a corntab job which will run automaticly every month and it will trigger that custom django command that we created to send those messages on its own and finally the system should be working on its own in no time
-
-hope you enjoy this guide!
+Enjoy this guide!
